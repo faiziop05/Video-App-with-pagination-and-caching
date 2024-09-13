@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import "./gesture-handler";
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaViewComponent, StyleSheet, Text, View } from "react-native";
+const { Navigator, Screen } = createStackNavigator();
+import Home from "./Home";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import VideoScreen from "./VideoScreen";
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer >
+      <Navigator screenOptions={{headerShown:false}}>
+        <Screen name="Home" component={Home} />
+        <Screen name="VideoScreen" component={VideoScreen} />
+      </Navigator>
+      <StatusBar style="light" />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
